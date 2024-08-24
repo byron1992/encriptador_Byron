@@ -106,9 +106,6 @@ header{
     width: 100%;
     background: transparent;
     color: var(--color-blue);
-}
-
-.oculto{
     display: none;
 }
 
@@ -135,12 +132,18 @@ header{
 }
 
 .mensaje_final{
+    background: none;
+    border: none;
+    outline: none;
+    resize: none;
     text-align: center;
     font-weight: bold;
     font-size: 24px;
 }
 .mensaje_final.ajustar{
-    height: 70%;
+    text-align: left;
+    font-weight: lighter;
+    height: 80%;
 }
 
 .derecha_info{
