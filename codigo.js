@@ -21,6 +21,16 @@ let remplazar= [
     ["u", "ufat"],
 ]
 
+const remplace= (nuevoValor) =>{
+    
+    mensajeFinal.innerHTML=nuevoValor;
+    muneco.style.display="none";
+    derechaInfo.style.display="none";
+    botonCopiar.style.display="block";
+    derecha.classList.add("ajustar");
+    mensajeFinal.classList.add("ajustar");
+}
+
 botonEncriptar.addEventListener("click", ()=>{
     const texto = ingresoTexto.value.toLowerCase()
     function encriptar(newText){
@@ -31,11 +41,20 @@ botonEncriptar.addEventListener("click", ()=>{
         };
         return newText
     }
-    const textoEncriptado =encriptar(texto);
-    mensajeFinal.innerHTML=textoEncriptado;
-    muneco.style.display="none";
-    derechaInfo.style.display="none";
-    botonCopiar.style.display="block";
-    derecha.classList.add("ajustar");
-    mensajeFinal.classList.add("ajustar");
+    /* const textoEncriptado =encriptar(texto); */
+    remplace(encriptar(texto));
+    
+});
+
+botonDesencriptar.addEventListener("click", ()=>{
+    const texto =ingresoTexto.value.toLowerCase();
+    function desencriptar (newText){
+        for(let i=0; i<remplazar.length; i++){
+            if(newText.includes(remplazar[i][1])){
+                newText = newText.replaceAll(remplazar[i][1], remplazar[i][0]);
+            };
+        };
+        return newText
+    }
+    remplace(desencriptar(texto));
 })
